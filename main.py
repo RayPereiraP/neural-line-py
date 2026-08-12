@@ -35,4 +35,12 @@ for i, sentence in enumerate(sentences):
 		y[i, char_to_index[next_characters[i]]] = 1
 
 model = Sequential()
-model.add(LSTM)
+model.add(LSTM(128, input_shape=(SEQ_LENGTH, len(characters)))
+model.add(Dense(len(characters)))
+model.add(Activation'sofrmax')
+
+model.compile(loss='categorical_crossentropy', optimizer=RMSprop(lr=0.01))
+
+model.fit(x, y, batch_size=256, epochs=4)
+
+model.save('textgenerator.model')
